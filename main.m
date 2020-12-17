@@ -193,10 +193,12 @@ for m = 1:TM
     Omega                       = eye(N_prod);  % (prods(m) x prods(m))
     Omega(index(1),index(2))    = 1;
     Omega(index(2),index(1))    = 1;
+
     
     %%% Now, construct an indicator to identify merged products
     merged_index(iii + index(1),1)    = 1;
     merged_index(iii + index(2),1)    = 1;
+
     
     iii   = iii + N_prod;
     
@@ -215,7 +217,6 @@ for m = 1:TM
     merged_share(T(m,1):T(m,2),:)   = merged_s_jm;   % Counterfactual/Merged shares
     
     %%% Re-define utility in the Baseline and Merged cases
-    %%% As in p57/78 Slide 1
     baseline_u  = [ones(N_prod,1) merged_A initial_price]*theta1_q3 + [merged_A initial_price]*(diag(theta2_q3)*v) + merged_xi;
     merged_u    = [ones(N_prod,1) merged_A p]*theta1_q3 + [merged_A p]*(diag(theta2_q3)*v) + merged_xi;
     
@@ -223,7 +224,7 @@ for m = 1:TM
     int_baseline_u  = sum(exp(baseline_u),1);
     int_merged_u    = sum(exp(merged_u),1);
     
-    %%% Define \Delta E(CS_i) (as in p57/78)
+    %%% Define \Delta E(CS_i)
     %%% Mean across individuals i
     %%% Minus sign such that easier to calculate/interpret welfare
     %%% Remember that alpha is negative!
