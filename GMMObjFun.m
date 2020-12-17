@@ -20,7 +20,7 @@ while norm_max > tol_inner && ii < 10000    % Loop until convergence
         denominator(T(m,1):T(m,2),:)    = repmat(1 + sum(numerator(T(m,1):T(m,2),:),1),prods(m),1);
     end
     
-    %%% Define share_ijm and share_jm p31/78
+    %%% Define share_ijm and share_jm
     share_ijm = numerator./denominator; %(970x100)
     share_jm = mean(share_ijm,2);   %(970x1)
     
@@ -31,7 +31,7 @@ while norm_max > tol_inner && ii < 10000    % Loop until convergence
     ii           = ii + 1;
 end
 
-%%% Define eps (or xi, IDK) as in p43/78
+%%% Define eps (or xi, IDK) 
 xi  = delta - XX_GMM*theta1;
 g   = IV'*xi;                   % 13x13 = (13x970) x (970x13) (moments)
 
