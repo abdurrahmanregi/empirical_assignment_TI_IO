@@ -28,7 +28,7 @@ for i = 1:N_prod
     end
 end
 
-%%% Define Omega_star as in Slide 1, p52/78
+%%% Define Omega_star 
 Omega_star  = Omega .* (- merged_denom_mkup);
 
 %%% f := s_m - \Omega_m [p_m - mc_m] = 0
