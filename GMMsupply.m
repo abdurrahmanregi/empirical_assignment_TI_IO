@@ -21,7 +21,7 @@ while (norm_max > tol_inner) && (ii < 10000)
         denominator(T(m,1):T(m,2),:) = repmat(1 + sum(numerator(T(m,1):T(m,2),:),1),prods(m),1);
     end
 
-    %%% Define share_ijm and share_jm p31/78
+    %%% Define share_ijm and share_jm
     share_ijm  = numerator./denominator;
     share_jm   = mean(share_ijm,2);
     
