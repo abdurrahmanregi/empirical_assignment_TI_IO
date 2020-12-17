@@ -11,7 +11,7 @@ global W tol_inner Kbeta Ktheta Total nn TM T share prods IV v delta_01
 ii          = 0;
 norm_max    = 1;
 delta       = delta_01;                % Making life easier (plus, making it as global)
-mu          = X_GMM*(diag(theta2_q1)*v);       % (970xnn), p30/78 slides
+mu          = X_GMM*(diag(theta2_q1)*v);       % (970xnn)
 
 while norm_max > tol_inner && ii < 10000    % Loop until convergence
     %%% the better way to tackle the problem!
