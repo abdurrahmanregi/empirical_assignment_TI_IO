@@ -70,11 +70,11 @@ Y_NL3   = [price log_within_gr3];
 Y_NL4   = [price log_within_gr4];
 Y_NL5   = [price log_within_gr5];
 
-XX_NL1  = [ones(Total,1) A -price log_within_gr1];
-XX_NL2  = [ones(Total,1) A -price log_within_gr2];
-XX_NL3  = [ones(Total,1) A -price log_within_gr3];
-XX_NL4  = [ones(Total,1) A -price log_within_gr4];
-XX_NL5  = [ones(Total,1) A -price log_within_gr5];
+XX_NL1  = [ones(Total,1) A price log_within_gr1];
+XX_NL2  = [ones(Total,1) A price log_within_gr2];
+XX_NL3  = [ones(Total,1) A price log_within_gr3];
+XX_NL4  = [ones(Total,1) A price log_within_gr4];
+XX_NL5  = [ones(Total,1) A price log_within_gr5];
 
 W_IV    = inv(IV'*IV);
 PZ_IV   = IV*W_IV*IV';
@@ -98,7 +98,7 @@ se_g3           = sqrt(diag(mean((delta-XX_NL3*NL_beta_g3).^2)*((XX_NL3'*PZ_IV*X
 str_g3          = [NL_beta_g3 se_g3]
 
 %%% Group 4
-NL_XIVhat_4     = PZ_IV*XX_NL4;
+NL_XIVhat_4     = PZ_IV*XX_NL4;co
 NL_beta_g4      = (NL_XIVhat_4'*NL_XIVhat_4)\(NL_XIVhat_4'*delta);
 se_g4           = sqrt(diag(mean((delta-XX_NL4*NL_beta_g4).^2)*((XX_NL4'*PZ_IV*XX_NL4)\eye(size(XX_NL4,2)))));
 str_g4          = [NL_beta_g4 se_g4]
